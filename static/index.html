@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        Scan this QR whatsApp web
+        <img alt="qr" id="qr">
+    </center>
+    <pre>
+        Enter the message here:-
+        <textarea name="" id="message" cols="30" rows="10"></textarea>
+        
+        Enter the new line 10 digit indian phone number here:-
+        <textarea name="" id="phone" cols="30" rows="10"></textarea>
+
+        <button onclick="send()">Send</button>
+
+    </pre>
+
+
+</body>
+<script>
+    function send() {
+        if (validate()){
+            phones = document.getElementById('phone').value.split('\n')
+        msg = document.getElementById('message').value
+        alert("sending message please press ok and wait")
+        axios.post("/sendall", { phones, msg }).
+            then(data => {
+                console.log(data)
+
+                data = data.data
+                console.log(data)
+                if (data.success)
+                    alert("Message sent successfully")
+                else
+                    alert("Some error may occur")
+
+
+
+            })
+        }
+        
+
+    }
+
+    function validate() {
+        flag = true
+        phones = document.getElementById('phone').value.split('\n')
+        for (i = 0; i < phones.length; i++) {
+            if (phones[i].length != 10) {
+                flag = false
+                alert(`${phones[i]} is not correct at ${i + 1} with length ${phones[i].length}`)
+            }
+            if (isNaN(Number(phones[i]))) {
+                flag = false
+                alert(`${phones[i]} is not a number at ${i + 1} with length ${phones[i].length}`)
+            }
+        }
+        return flag
+    }
+</script>
+
+</html>
