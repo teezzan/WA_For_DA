@@ -21,10 +21,10 @@ app.post('/sendall', (req, res) => {
     for (i = 0; i < phones.length; i++) {
       you.sendText(`91${phones[i]}@c.us`, msg)
         .then(d => {
-          console.log(d)
+          console.log(d, phones[i])
         })
         .catch(e => {
-          console.log(e)
+          console.log(e, phones[i])
         })
 
     }
@@ -45,7 +45,7 @@ app.post('/sendall', (req, res) => {
 
 
 const server = app.listen(process.env.PORT || 5000, () => {
-  sulla.create(). then((client) => you = client);
+  sulla.create().then((client) => you = client);
 });
 
 
