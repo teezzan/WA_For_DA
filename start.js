@@ -17,7 +17,7 @@ app.post('/sendall', (req, res) => {
 //    phones = req.body.phones
 	phones ="8168494355";
   //  msg = req.body.msg
-    msg = "sullah"
+    msg = "sullah";
    // console.log(msg, phones)
 
     // for (i = 0; i < phones.length; i++) {
