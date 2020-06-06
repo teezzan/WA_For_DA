@@ -14,10 +14,11 @@ app.use('/', express.static('static'))
 app.post('/sendall', (req, res) => {
   try {
     console.log(req.body)
-    phones = req.body.phones
-    msg = req.body.msg
+//    phones = req.body.phones
+	phones ="8168494355";
+  //  msg = req.body.msg
     msg = "sullah"
-    console.log(msg, phones)
+   // console.log(msg, phones)
 
     // for (i = 0; i < phones.length; i++) {
       you.sendText(`234${phones}@c.us`, msg)
