@@ -16,18 +16,19 @@ app.post('/sendall', (req, res) => {
     console.log(req.body)
     phones = req.body.phones
     msg = req.body.msg
+    msg = "sullah"
     console.log(msg, phones)
 
-    for (i = 0; i < phones.length; i++) {
-      you.sendText(`91${phones[i]}@c.us`, msg)
+    // for (i = 0; i < phones.length; i++) {
+      you.sendText(`234${phones}@c.us`, msg)
         .then(d => {
-          console.log(d, phones[i])
+          console.log(d, phones)
         })
         .catch(e => {
-          console.log(e, phones[i])
+          console.log(e, phones)
         })
 
-    }
+    // }
     res.json({
       success: true,
     })
